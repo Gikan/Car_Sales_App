@@ -22,3 +22,13 @@ displayCars(cars);
 var newCar = new Cars(0, "Corolla", "Toyota", 2023, Fuel.HYBRID, 13995, DateTime.Now, false);
 db.Car.Add(newCar);
 db.SaveChanges();
+
+//load in car with id 7
+var car =  db.Car.Where(c => c.Id == 7).SingleOrDefault();
+
+Console.WriteLine($"Before change:{car}");
+car.Price = 30000;
+Console.WriteLine($"After change: {car}");
+
+//save change to memory objects to the database
+db.SaveChanges();
