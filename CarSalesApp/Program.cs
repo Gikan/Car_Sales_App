@@ -17,3 +17,8 @@ var cars = db.Car.ToList();
 
 //display all car records from memory list
 displayCars(cars);
+
+//add a new car record
+var newCar = new Cars(0, "Corolla", "Toyota", 2023, Fuel.HYBRID, 13995, DateTime.Now, false);
+db.Car.Add(newCar);
+db.SaveChanges();
